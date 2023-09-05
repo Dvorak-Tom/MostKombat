@@ -1,0 +1,231 @@
+@font-face {
+  font-family: 'pixelFont';
+  src: url('pixelFont.ttf') format('truetype');
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: rgb(235, 235, 235);
+}
+
+body {
+  font-family: 'pixelFont', sans-serif;
+  font-weight: 400;
+  width: 1200px;
+  color: #fff;
+  text-shadow: 3px 3px 0px rgba(0, 0, 0, 1);
+}
+
+/* LAYOUT */
+main {
+  position: relative;
+  height: 90vh;
+  background-size: cover;
+
+  border-radius: 9px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.not-visible {
+  visibility: hidden;
+}
+
+@keyframes moveUpDown {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px); /* Adjust the distance as needed */
+  }
+}
+
+/*MENU*/
+.player--selection {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 0px 0px 40px;
+  margin: 10px;
+  border: 8px groove #a8a8a8;
+  gap: 40px;
+}
+
+.player--selection--1,
+.player--selection--2,
+.player--selection--3,
+.player--selection--4 {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+}
+
+#name--0,
+#name--1,
+#name--2,
+#name--3 {
+  text-transform: uppercase;
+  font-weight: 300;
+}
+
+.title {
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+h1 {
+  color: red;
+  font-size: 3rem;
+  text-align: center;
+  margin-top: 20px;
+}
+
+h3 {
+  margin-top: 40px;
+  color: yellow;
+  font-size: 1.5rem;
+}
+
+#main-menu {
+  background-image: url(../images/menu-bg.png);
+}
+
+#how-to-play {
+  text-align: center;
+  bottom: 0;
+  right: 0;
+  margin: 20px;
+  font-size: 1rem;
+  color: yellow;
+}
+
+img {
+  max-width: 100%;
+  max-height: 100%;
+  border: 5px solid transparent; /* transparent border */
+  box-shadow: -4px -4px 2px #666, 4px 4px 2px rgb(230, 230, 230);
+}
+
+img:hover {
+  border: solid 5px yellow;
+  cursor: pointer;
+}
+
+@keyframes blinking {
+  0% {
+    opacity: 1;
+  }
+  20% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.player-selector--menu {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2rem;
+  font-weight: bold;
+  animation: blinking 0.5s;
+}
+
+.title {
+  font-size: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+@media only screen and (max-width: 900px) {
+  body {
+    width: 100%;
+    height: 100%;
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 1);
+  }
+  main {
+    height: 100vh !important;
+    background-position: bottom !important;
+  }
+
+  .player--selection > * {
+    flex-direction: column;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+  }
+  .player--selection {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    margin: 0px;
+    border: none;
+    gap: 40px;
+    padding: 10px 0px 0px 40px;
+  }
+
+  h2 {
+    font-size: 0.8rem;
+  }
+  h1 {
+    font-size: 1.5rem;
+  }
+  h3 {
+    margin-top: 10px;
+    font-size: 0.8rem;
+  }
+
+  #how-to-play {
+    font-size: 0.6rem;
+    position: fixed;
+    bottom: 0;
+    text-shadow: 1px 1px 0px rgba(0, 0, 0, 1);
+  }
+
+  .player-selector--menu {
+    font-size: 1.8rem !important;
+  }
+
+  img {
+    width: 100%;
+    height: 80px !important;
+  }
+}

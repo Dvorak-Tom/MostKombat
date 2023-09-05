@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/menu.css" />
+  </head>
+  <body>
+    <main id="main-menu">
+      <div class="menu">
+        <div class="title">
+          <h1>Streets of Most Kombat</h1>
+          <h3>Choose your fighter</h3>
+        </div>
+        <div class="player--selection">
+          <div
+            class="player--selection--1"
+            id="player1"
+            onclick="selectPlayer('player1', 'Ondra', 'images/p1.png', 'images/player1.png')"
+          >
+            <img src="images/player1.png" alt="Player 1" />
+            <h2 class="name" id="name--0">Ondra</h2>
+          </div>
+          <div
+            class="player--selection--2"
+            id="player2"
+            onclick="selectPlayer('player2', 'Dajda', 'images/p2.png', 'images/player2.png')"
+          >
+            <img src="images/player2.png" alt="Player 2" />
+            <h2 class="name" id="name--1">Dajda</h2>
+          </div>
+          <div
+            class="player--selection--3"
+            id="player3"
+            onclick="selectPlayer('player3', 'Niky', 'images/p3.png', 'images/player3.png')"
+          >
+            <img src="images/player3.png" alt="Player 3" />
+            <h2 class="name" id="name--2">Niky</h2>
+          </div>
+          <div
+            class="player--selection--4"
+            id="player4"
+            onclick="selectPlayer('player4', 'Bucharek', 'images/p4.png', 'images/player4.png' )"
+          >
+            <img src="images/player4.png" alt="Player 4" />
+            <h2 class="name" id="name--3">Buchar</h2>
+          </div>
+          <div id="info"></div>
+        </div>
+        <p id="how-to-play">
+          How to play: You press btn <span style="color: red">"Charge"</span> to
+          load 1 or multiple hits. when you're happy with gained hits, press
+          <span style="color: red">"Attack"</span>. If you fail attack, you will
+          be noted with <span style="color: red">"you Missed"</span>
+        </p>
+      </div>
+    </main>
+
+    <script src="scripts/menu.js"></script>
+  </body>
+</html>

@@ -1,0 +1,453 @@
+@font-face {
+  font-family: 'pixelFont';
+  src: url('pixelFont.ttf') format('truetype');
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: rgb(235, 235, 235);
+}
+
+body {
+  font-family: 'pixelFont', sans-serif;
+  font-weight: 400;
+  width: 1200px;
+  color: #fff;
+  text-shadow: 2px 2px 0px rgba(0, 0, 0, 1);
+}
+
+/* LAYOUT */
+main {
+  position: relative;
+  height: 90vh;
+  background-size: cover;
+  background-position: bottom;
+
+  border-radius: 9px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+#main-background {
+  width: 100%;
+  height: 90vh;
+  background-size: cover;
+  background-position: bottom;
+}
+
+.player {
+  flex: 50%;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.75s;
+}
+
+h1 {
+  padding: 0px 0px 0px 5px;
+}
+
+/* ELEMENTS */
+.name {
+  position: relative;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  word-spacing: 2px;
+  font-weight: 300;
+  margin-bottom: 1rem;
+  font-style: italic;
+}
+
+#name--1 {
+  text-align: right;
+}
+
+.current {
+  background-color: #c7365f;
+  opacity: 0.8;
+  border-radius: 9px;
+  color: #fff;
+  width: 65%;
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.75s;
+}
+
+.current-label {
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  font-size: 1.7rem;
+  color: #ddd;
+}
+
+.current-score {
+  font-size: 3.5rem;
+}
+
+/* ABSOLUTE POSITIONED ELEMENTS */
+.btn {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #444;
+  border: none;
+  font-family: inherit;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s;
+  padding: 5px 7px;
+  background-color: yellow;
+  box-shadow: 3px 3px 0px 0px black;
+}
+
+.btn--new {
+  top: 18vh;
+  font-size: 0.7rem;
+}
+
+.btn--menu {
+  top: 23vh;
+  font-size: 0.7rem;
+}
+.btn--charge {
+  top: 62vh;
+}
+.btn--attack {
+  top: 70vh;
+}
+
+.btn:active {
+  transform: translate(-50%, 3px);
+  box-shadow: 0px 0px 0px 0px black;
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.player--winner {
+  background-color: #2f2f2f;
+}
+
+.player--winner .name {
+  font-weight: 700;
+  color: #c7365f;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.life-bar-container0 {
+  width: 50vh;
+  height: 20px;
+  border: 1px solid black;
+  background-color: red;
+  border: solid 3px silver;
+}
+
+.life-bar-container1 {
+  width: 50vh;
+  height: 20px;
+  border: 1px solid black;
+  background-color: red;
+  border: solid 3px silver;
+}
+
+.life-bar1 {
+  width: 100%;
+  height: 100%;
+  background-color: yellow;
+  transition: width 0.5s;
+}
+.life-bar0 {
+  width: 100%;
+  height: 100%;
+  background-color: yellow;
+  transition: width 0.5s;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+}
+
+.ko {
+  padding: 7px 7px;
+  background-color: #fff;
+  border: solid 3px silver;
+  color: red;
+  background-color: #222;
+  margin: -3px;
+  z-index: 50;
+}
+
+.p1-face img,
+.p2-face img {
+  width: 15vh;
+
+  /* Remove negative margin */
+  position: relative;
+  top: 5.6vh;
+  border: solid 3px silver;
+  margin: 0px -3px;
+}
+
+.p0-body,
+.p1-body {
+  position: absolute;
+  bottom: 5vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.attacks-images {
+  width: 8vh;
+  margin: 0px 5px;
+  box-shadow: 0px 0px 2px black;
+  padding: 5px;
+  background-color: rgba(255, 0, 0, 0.3);
+}
+
+.atck-container-text {
+  display: flex;
+  flex-direction: row;
+}
+
+.atck-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 50%;
+  bottom: 38vh;
+  transform: translateX(-50%);
+  border: none;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-weight: 400;
+  transition: all 0.2s;
+  padding: 0.7rem 0.7rem;
+  width: auto;
+  height: 50px;
+  background-color: #dbdbdb41;
+}
+
+.rotate-vertical {
+  width: 80px; /* Adjust the size as needed */
+  height: 80px;
+  animation: rotate 4s linear infinite;
+  margin-bottom: 20px;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotateY(0deg);
+  }
+  100% {
+    transform: rotateY(360deg);
+  }
+}
+
+.not-visible {
+  visibility: hidden;
+}
+
+.move-element {
+  height: 55vh;
+  z-index: 999;
+  animation: moveUpDown 0.4s ease-in-out infinite;
+}
+
+.move-element1 {
+  height: 55vh;
+  z-index: 999;
+  animation: moveUpDown 0.5s ease-in-out infinite;
+}
+
+@keyframes moveUpDown {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px); /* Adjust the distance as needed */
+  }
+}
+
+.shadow {
+  z-index: 888;
+  margin-top: -5vh;
+  height: 4vh;
+  width: 60%;
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.2
+  ); /* color of the ellipse, with 20% opacity */
+  border-radius: 100%; /* creates an elliptical shape */
+  box-shadow: 20px 0px 20px 20px rgba(0, 0, 0, 0.2); /* horizontal shadow, vertical shadow, blur radius, color with 20% opacity */
+}
+
+/*player flipped */
+.p1-body {
+  transform: scaleX(-1);
+}
+
+@keyframes spinDisappear {
+  0% {
+    transform: rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes hitAnimationP1 {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(400px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes hitAnimationP2 {
+  0% {
+    transform: scaleX(-1) translateX(0);
+  }
+  50% {
+    transform: scaleX(-1) translateX(400px);
+  }
+  100% {
+    transform: scaleX(-1) translateX(0);
+  }
+}
+
+.loose-animation {
+  animation: spinDisappear 2s forwards;
+}
+
+.hit-animation {
+  animation: hitAnimationP1 0.5s forwards;
+}
+
+.hit-animation2 {
+  animation: hitAnimationP2 0.5s forwards;
+}
+
+#missed {
+  display: none;
+  position: absolute;
+  top: 50%;
+  font-size: 5rem;
+  z-index: 999;
+  color: red;
+  animation: missedAnimation 0.8s forwards;
+}
+
+/*animation for missed*/
+@keyframes missedAnimation {
+  0% {
+    transform: scale(0);
+  }
+  40% {
+    transform: scale(1);
+  }
+  60% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+
+/*body for mobile*/
+@media only screen and (max-width: 900px) {
+  main {
+    height: 100vh !important;
+    background-position: bottom !important;
+  }
+  .btn {
+    font-size: 0.8rem !important;
+    position: absolute !important;
+  }
+
+  .btn--new {
+    top: 25vh !important;
+    font-size: 0.5rem !important;
+  }
+  .btn--charge {
+    top: 70vh !important;
+  }
+  .btn--attack {
+    top: 80vh !important;
+  }
+
+  .btn--menu {
+    top: 34vh;
+    font-size: 0.5rem !important;
+  }
+
+  .selector--0,
+  .selector--1 {
+    width: 30px !important;
+    height: 30px !important;
+  }
+  .name {
+    font-size: 1rem !important;
+  }
+  .life-bar-container0,
+  .life-bar-container1 {
+    width: 100% !important;
+    height: 14px !important;
+  }
+
+  .atck-container {
+    bottom: 34vh;
+    padding: 0.4rem;
+  }
+
+  .move-element {
+    height: 70vh;
+    margin-bottom: 1vh;
+  }
+
+  .move-element1 {
+    height: 70vh;
+    margin-bottom: 1vh;
+  }
+  .shadow {
+    margin-top: -10vh;
+    height: 4vh;
+    width: 60%;
+  }
+  #missed {
+    font-size: 3rem;
+  }
+}
