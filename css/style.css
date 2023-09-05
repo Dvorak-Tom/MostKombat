@@ -392,6 +392,7 @@ h1 {
   main {
     height: 100vh !important;
     background-position: bottom !important;
+    border-radius: 0px;
   }
   .btn {
     font-size: 0.8rem !important;
@@ -400,18 +401,18 @@ h1 {
 
   .btn--new {
     top: 25vh !important;
-    font-size: 0.5rem !important;
+    font-size: 0.4rem !important;
   }
   .btn--charge {
-    top: 70vh !important;
+    top: 68vh !important;
   }
   .btn--attack {
-    top: 80vh !important;
+    top: 82vh !important;
   }
 
   .btn--menu {
-    top: 34vh;
-    font-size: 0.5rem !important;
+    top: 36vh;
+    font-size: 0.4rem !important;
   }
 
   .selector--0,
@@ -434,12 +435,12 @@ h1 {
   }
 
   .move-element {
-    height: 70vh;
+    height: 62vh;
     margin-bottom: 1vh;
   }
 
   .move-element1 {
-    height: 70vh;
+    height: 62vh;
     margin-bottom: 1vh;
   }
   .shadow {

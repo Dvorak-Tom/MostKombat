@@ -181,6 +181,7 @@ img:hover {
   main {
     height: 100vh !important;
     background-position: bottom !important;
+    border-radius: 0px;
   }
 
   .player--selection > * {
@@ -226,6 +227,6 @@ img:hover {
 
   img {
     width: 100%;
-    height: 80px !important;
+    height: 35vh !important;
   }
 }
