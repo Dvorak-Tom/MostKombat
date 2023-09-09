@@ -166,10 +166,8 @@ function restartGame() {
 const mainBackground = document.querySelector('#main-background');
 const totalBackgrounds = 3;
 const randomNum = Math.floor(Math.random() * totalBackgrounds + 1);
-console.log(randomNum);
 
 const imagePath = `url(images/bg${randomNum}.jpg)`;
-console.log(imagePath);
 
 mainBackground.style.backgroundImage = imagePath;
 

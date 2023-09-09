@@ -1,5 +1,4 @@
 'use strict';
-localStorage.setItem('test', 'This is a test.');
 
 console.log('test');
 document.addEventListener('DOMContentLoaded', function () {
